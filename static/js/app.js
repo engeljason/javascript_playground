@@ -24,7 +24,7 @@ function plotGraphsAndMetadata(sample, meta_sample) {
 
     var bar_data = [{
         x: sample.sample_values.slice(0,10),
-        y: sample.otu_ids.slice(0,10).map(x => 'OTU '+x),
+        y: sample.otu_ids.slice(0,10).reverse().map(x => 'OTU '+x),
         text: sample.otu_labels.slice(0,10),
         type: 'bar',
         orientation: 'h'
@@ -43,7 +43,8 @@ function plotGraphsAndMetadata(sample, meta_sample) {
           text: sample.otu_labels,
           mode: 'markers',
           marker: {
-              color: [...sample.otu_ids].map(x => `rgb(${x%254}, ${x%213}, ${x%149})` ),
+              colorscale: 'Jet',
+              color: sample.otu_ids,
               opacity: 0.9,
               size: sample.sample_values
           }
