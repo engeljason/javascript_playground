@@ -14,7 +14,7 @@ function init() {
     plotGraphsAndMetadata(samples[0], metadata[0])
     dropdown = d3.select('#selDataset')
     samples.forEach((value, i) =>
-        dropdown.append('option').attr('value',`${i}`).text(`${value.id}`)
+        dropdown.append('option').attr('value',i).text(value.id)
     )
   }
 
